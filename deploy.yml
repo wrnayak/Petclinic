@@ -1,0 +1,17 @@
+---
+- name: Deploy WAR file to on-premises server
+  hosts: target_servers
+  become: yes
+  tasks:
+    - name: Copy WAR file to Tomcat webapps directory
+      copy:
+        src: /var/lib/jenkins/workspace/CI_CD_PIPELINE/target/petclinic.war
+        dest: /opt/tomcat/webapps/petclinic.war
+        owner: tomcat
+        group: tomcat
+        mode: '0644'
+
+    - name: Restart Tomcat service to deploy WAR
+      service:
+        name: tomcat
+        state: restarted

@@ -3,10 +3,10 @@
   hosts: Target
   become: yes
   tasks:
-    - name: Copy WAR file to Tomcat webapps directory
+    - name: deploy build from jenkins to onprem server
       copy:
         src: /var/lib/jenkins/workspace/CI_CD_PIPELINE/target/petclinic.war
-        dest: /target/petclinic
+        dest: /target/petclinic.war
        
 
    

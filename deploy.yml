@@ -6,7 +6,7 @@
     - name: Copy WAR file to Tomcat webapps directory
       copy:
         src: /var/lib/jenkins/workspace/CI_CD_PIPELINE/target/petclinic.war
-        dest: /target/petclinic.war
+        dest: /target/petclinic
        
 
    
